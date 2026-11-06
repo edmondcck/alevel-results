@@ -45,7 +45,7 @@ A modern web application for exploring 16 to 19 (A-Level, Academic, Applied Gene
 - **Cross-Page Synchronization**: Filter selections (LAs, pupil groups / cohorts, school types, and religious character) seamlessly carry forward when switching between the Performance Table and the Dashboard.
 - **Sorting & Measure Explanations**: Interactive sorting by any numeric or qualitative measure (APS per entry, Best 3 A levels, % AAB+ in facilitating subjects, Value Added, % Retained, 16–18 cohort size, etc.) with in-app explanatory tooltips.
 - **Historical Dashboard**: Multi-institution trend charts over time (`2021-22` to `2024-25`) powered by Recharts, with full support for Local Authority, pupil group / cohort, institution type, and faith filtering.
-- **Design System**: Frosted glass interface with light/dark theme support, smooth typography, and accessible keyboard navigation.
+- **Design System & High-Density Layout**: Editorial Academic Glassmorphism with light/dark theme support, compact data-dense table view maximizing visible rows without scrolling, smooth typography, and accessible keyboard navigation.
 
 ---
 
@@ -243,9 +243,10 @@ Cloudflare will deploy your build and return a live preview and production URL (
 2. Go to the [Cloudflare Dashboard](https://dash.cloudflare.com/) > **Compute (Workers & Pages)** > **Create application** > **Pages** tab.
 3. Select **Connect to Git** and authorize your repository.
 4. Set the following build configuration:
-   - **Framework preset:** `Vite`
+   - **Framework preset:** `None` (or custom)
    - **Build command:** `npm run build`
    - **Build output directory:** `dist`
+   - **Environment variables** (under *Advanced*): Add `NODE_VERSION` with value `20` (or let Cloudflare detect `.node-version`)
 5. Click **Save and Deploy**. Cloudflare will automatically build and deploy every time you push to your repository.
 
 ---

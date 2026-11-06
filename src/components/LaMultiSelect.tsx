@@ -44,19 +44,19 @@ export function LaMultiSelect({ id, options, value, onChange }: Props) {
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <button id={id} type="button" role="combobox" aria-expanded={open} className={triggerClass}>
-          <span className="flex min-w-0 items-center gap-2">
-            <MapPin className="size-4 shrink-0 text-primary" />
+          <span className="flex min-w-0 items-center gap-1.5">
+            <MapPin className="size-3.5 shrink-0 text-primary" />
             <span className={selectedOptions.length ? "truncate" : "truncate text-muted-foreground"}>
               {summary}
             </span>
           </span>
           <span className="flex shrink-0 items-center gap-1.5">
             {selectedOptions.length > 0 && (
-              <span className="tabular rounded-full bg-primary/12 px-1.5 py-0.5 text-[0.7rem] font-semibold text-primary">
+              <span className="tabular rounded-full bg-primary/12 px-1.5 py-0.5 text-[0.65rem] font-semibold text-primary">
                 {selectedOptions.length}
               </span>
             )}
-            <ChevronsUpDown className="size-4 text-muted-foreground" />
+            <ChevronsUpDown className="size-3.5 text-muted-foreground" />
           </span>
         </button>
       </PopoverTrigger>

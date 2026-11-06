@@ -16,9 +16,9 @@ export function YearSelect({ id, periods, value, onChange }: Props) {
   const newestFirst = [...periods].reverse()
   return (
     <Select value={value} onValueChange={onChange}>
-      <SelectTrigger id={id} className={`${triggerClass} data-[size=default]:h-10`}>
-        <span className="flex items-center gap-2">
-          <CalendarDays className="size-4 text-primary" />
+      <SelectTrigger id={id} className={`${triggerClass} data-[size=default]:h-8.5`}>
+        <span className="flex items-center gap-1.5">
+          <CalendarDays className="size-3.5 text-primary" />
           <SelectValue placeholder="Year" />
         </span>
       </SelectTrigger>

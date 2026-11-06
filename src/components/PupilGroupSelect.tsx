@@ -47,11 +47,11 @@ export function PupilGroupMultiSelect({ id, groups, value, onChange }: MultiProp
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <button id={id} type="button" aria-expanded={open} className={triggerClass}>
-          <span className="flex min-w-0 items-center gap-2">
-            <Users className="size-4 shrink-0 text-primary" />
+          <span className="flex min-w-0 items-center gap-1.5">
+            <Users className="size-3.5 shrink-0 text-primary" />
             <span className="truncate">{summary}</span>
           </span>
-          <ChevronsUpDown className="size-4 shrink-0 text-muted-foreground" />
+          <ChevronsUpDown className="size-3.5 shrink-0 text-muted-foreground" />
         </button>
       </PopoverTrigger>
       <PopoverContent align="start" className="w-72 p-0">

@@ -43,14 +43,14 @@ export function ColumnSelect({ id, indicators, shortLabel, value, defaults, onCh
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <button id={id} type="button" aria-expanded={open} className={triggerClass}>
-          <span className="flex min-w-0 items-center gap-2">
-            <Columns3 className="size-4 shrink-0 text-primary" />
+          <span className="flex min-w-0 items-center gap-1.5">
+            <Columns3 className="size-3.5 shrink-0 text-primary" />
             <span className="truncate">
               {value.length} column{value.length === 1 ? "" : "s"}
               {!isDefault && <span className="text-muted-foreground"> · customised</span>}
             </span>
           </span>
-          <ChevronsUpDown className="size-4 shrink-0 text-muted-foreground" />
+          <ChevronsUpDown className="size-3.5 shrink-0 text-muted-foreground" />
         </button>
       </PopoverTrigger>
       <PopoverContent align="end" className="w-[min(30rem,calc(100vw-2rem))] p-0">
@@ -112,9 +112,9 @@ export function IndicatorPicker({ id, indicators, value, onChange }: IndicatorPi
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <button id={id} type="button" role="combobox" aria-expanded={open} className={`${triggerClass} h-9`}>
+        <button id={id} type="button" role="combobox" aria-expanded={open} className={triggerClass}>
           <span className="truncate">{current?.label ?? "Choose an indicator…"}</span>
-          <ChevronsUpDown className="size-4 shrink-0 text-muted-foreground" />
+          <ChevronsUpDown className="size-3.5 shrink-0 text-muted-foreground" />
         </button>
       </PopoverTrigger>
       <PopoverContent align="start" className="w-[min(30rem,calc(100vw-2rem))] p-0">

@@ -68,18 +68,18 @@ export function MetricLineChart({
       id={id}
       style={style}
       className={cn(
-        "glass group/card flex min-w-0 animate-rise flex-col rounded-3xl p-5 transition-shadow duration-300 hover:shadow-xl sm:p-6",
+        "glass group/card flex min-w-0 animate-rise flex-col rounded-2xl p-3.5 transition-shadow duration-300 hover:shadow-xl sm:p-4",
         className,
       )}
     >
-      <header className="mb-4 flex flex-col gap-3">
+      <header className="mb-2.5 flex flex-col gap-2">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
-            <h2 className="font-display text-2xl leading-tight font-medium">{title}</h2>
-            {subtitle && <p className="mt-1 text-xs text-muted-foreground">{subtitle}</p>}
+            <h2 className="font-display text-lg leading-tight font-medium sm:text-xl">{title}</h2>
+            {subtitle && <p className="mt-0.5 text-[0.7rem] text-muted-foreground">{subtitle}</p>}
           </div>
           {series && series.schools.length > 0 && (
-            <span className="eyebrow shrink-0 rounded-full border border-glass-border bg-background/40 px-2.5 py-1 text-[0.6rem] text-muted-foreground">
+            <span className="eyebrow shrink-0 rounded-full border border-glass-border bg-background/40 px-2 py-0.5 text-[0.575rem] text-muted-foreground">
               Top {series.schools.length}
               {series.totalSchools > series.schools.length ? ` of ${series.totalSchools}` : ""}
               {rankYear ? ` · ${rankYear}` : ""}
@@ -88,24 +88,24 @@ export function MetricLineChart({
         </div>
         {headerSlot}
         {note && (
-          <p className="flex items-start gap-1.5 rounded-xl bg-terracotta/10 px-3 py-2 text-xs leading-snug text-foreground/80">
-            <Info className="mt-px size-3.5 shrink-0 text-terracotta" />
+          <p className="flex items-start gap-1.5 rounded-xl bg-terracotta/10 px-2.5 py-1.5 text-[0.7rem] leading-snug text-foreground/80">
+            <Info className="mt-px size-3 shrink-0 text-terracotta" />
             {note}
           </p>
         )}
       </header>
 
       {loading && !series ? (
-        <Skeleton className="h-[300px] w-full rounded-2xl bg-foreground/5" />
+        <Skeleton className="h-[250px] w-full rounded-2xl bg-foreground/5" />
       ) : schools.length === 0 ? (
-        <div className="flex h-[300px] items-center justify-center rounded-2xl border border-dashed text-sm text-muted-foreground">
+        <div className="flex h-[250px] items-center justify-center rounded-2xl border border-dashed text-xs text-muted-foreground">
           No published data for this selection.
         </div>
       ) : (
         <>
           <ChartContainer
             config={config}
-            className={cn("aspect-auto h-[300px] w-full transition-opacity", loading && "opacity-50")}
+            className={cn("aspect-auto h-[250px] w-full transition-opacity", loading && "opacity-50")}
           >
             <LineChart data={series!.data} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
               <CartesianGrid vertical={false} strokeDasharray="3 6" />
@@ -181,7 +181,7 @@ export function MetricLineChart({
             </LineChart>
           </ChartContainer>
 
-          <ol className="mt-4 grid grid-cols-1 gap-x-4 gap-y-0.5 text-xs sm:grid-cols-2" aria-label="Legend">
+          <ol className="mt-3 grid grid-cols-1 gap-x-3 gap-y-0.5 text-[0.7rem] sm:grid-cols-2" aria-label="Legend">
             {schools.map((s) => (
               <li key={s.key}>
                 <button
@@ -194,7 +194,7 @@ export function MetricLineChart({
                   aria-pressed={!hidden.has(s.key)}
                   title={`${s.name}${s.laName ? ` (${s.laName})` : ""}. Click to show/hide.`}
                   className={cn(
-                    "flex w-full items-center gap-2 rounded-md px-1.5 py-1 text-left transition-all hover:bg-foreground/5",
+                    "flex w-full items-center gap-1.5 rounded-md px-1 py-0.5 text-left transition-all hover:bg-foreground/5",
                     hidden.has(s.key) && "opacity-40",
                   )}
                 >

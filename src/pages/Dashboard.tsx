@@ -83,7 +83,7 @@ export default function Dashboard() {
   const lastYear = lookups?.periods.at(-1)?.period
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-3.5 sm:gap-4">
       <PageHero
         eyebrow="16 to 19 · Trends"
         title={
@@ -104,10 +104,10 @@ export default function Dashboard() {
         <>
           <section
             aria-label="Dashboard filters"
-            className="glass flex flex-col gap-3 rounded-3xl p-4 animate-rise [animation-delay:80ms] sm:p-5"
+            className="glass flex flex-col gap-2.5 rounded-2xl p-3 animate-rise [animation-delay:80ms] sm:p-3.5"
           >
             <div className="flex items-center justify-between">
-              <span className="eyebrow text-muted-foreground">Filters</span>
+              <span className="eyebrow text-[0.625rem] text-muted-foreground">Filters</span>
               {isFiltered && (
                 <button
                   type="button"
@@ -115,12 +115,12 @@ export default function Dashboard() {
                   onClick={resetFilters}
                   className="inline-flex items-center gap-1.5 rounded-lg px-2 py-0.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground"
                 >
-                  <RotateCcw className="size-3.5" />
+                  <RotateCcw className="size-3" />
                   Reset filters
                 </button>
               )}
             </div>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
               {lookups ? (
                 <>
                   <Field
@@ -161,9 +161,9 @@ export default function Dashboard() {
                 </>
               ) : (
                 Array.from({ length: 4 }).map((_, i) => (
-                  <div key={i} className="flex flex-col gap-1.5">
-                    <Skeleton className="h-3 w-24 bg-foreground/5" />
-                    <Skeleton className="h-10 w-full rounded-xl bg-foreground/5" />
+                  <div key={i} className="flex flex-col gap-1">
+                    <Skeleton className="h-2.5 w-24 bg-foreground/5" />
+                    <Skeleton className="h-8.5 w-full rounded-xl bg-foreground/5" />
                   </div>
                 ))
               )}
@@ -171,13 +171,13 @@ export default function Dashboard() {
           </section>
 
           {laIds.length === 0 && lookups ? (
-            <div className="glass rounded-3xl">
+            <div className="glass rounded-2xl">
               <EmptyState>Choose at least one local authority to see charts.</EmptyState>
             </div>
           ) : headline.isError ? (
             <ErrorPanel message={(headline.error as Error)?.message} onRetry={() => headline.refetch()} />
           ) : (
-            <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
+            <div className="grid grid-cols-1 gap-3.5 sm:gap-4 xl:grid-cols-2">
               {(headlineIds.length ? headlineIds : ["a", "b", "c", "d", "e", "f"]).map((id, i) => {
                 const ind = lookups?.indicatorById.get(id)
                 return (

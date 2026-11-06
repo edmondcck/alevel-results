@@ -123,7 +123,7 @@ export default function SchoolPerformance() {
   const laNames = laIds.map((id) => lookups?.laById.get(id)?.label).filter(Boolean)
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-3.5 sm:gap-4">
       <PageHero
         eyebrow="16 to 19 · Performance tables"
         title={
@@ -147,10 +147,10 @@ export default function SchoolPerformance() {
           {/* Controls */}
           <section
             aria-label="Table filters"
-            className="glass flex flex-col gap-3 rounded-3xl p-4 animate-rise [animation-delay:80ms] sm:p-5"
+            className="glass flex flex-col gap-2.5 rounded-2xl p-3 animate-rise [animation-delay:80ms] sm:p-3.5"
           >
             <div className="flex items-center justify-between">
-              <span className="eyebrow text-muted-foreground">Filters</span>
+              <span className="eyebrow text-[0.625rem] text-muted-foreground">Filters</span>
               <div className="flex items-center gap-2">
                 {isFiltered && (
                   <button
@@ -159,7 +159,7 @@ export default function SchoolPerformance() {
                     onClick={resetFilters}
                     className="inline-flex items-center gap-1.5 rounded-lg px-2 py-0.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground"
                   >
-                    <RotateCcw className="size-3.5" />
+                    <RotateCcw className="size-3" />
                     Reset filters
                   </button>
                 )}
@@ -170,13 +170,13 @@ export default function SchoolPerformance() {
                     onClick={resetColumns}
                     className="inline-flex items-center gap-1.5 rounded-lg px-2 py-0.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground"
                   >
-                    <RotateCcw className="size-3.5" />
+                    <RotateCcw className="size-3" />
                     Reset columns
                   </button>
                 )}
               </div>
             </div>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
               {lookups ? (
                 <>
                   <Field label="Year" htmlFor="year-select">
@@ -234,7 +234,7 @@ export default function SchoolPerformance() {
           {/* Table */}
           <section
             aria-label="School performance table"
-            className="glass relative animate-rise overflow-hidden rounded-3xl [animation-delay:160ms]"
+            className="glass relative animate-rise overflow-hidden rounded-2xl [animation-delay:160ms]"
           >
             <LoadingBar active={data.isFetching} />
 
@@ -243,18 +243,18 @@ export default function SchoolPerformance() {
             ) : laIds.length === 0 && lookups ? (
               <EmptyState>Choose at least one local authority to see schools and colleges.</EmptyState>
             ) : (
-              <div className="max-h-[calc(100dvh-11rem)] overflow-auto overscroll-contain" id="results-table">
-                <table className="w-full caption-bottom border-separate border-spacing-0 text-sm">
+              <div className="max-h-[calc(100dvh-8.5rem)] overflow-auto overscroll-contain" id="results-table">
+                <table className="w-full caption-bottom border-separate border-spacing-0 text-xs sm:text-sm">
                   <caption className="sr-only">
                     Schools ordered by {lookups ? indicatorTitle(lookups, sort.indicatorId) : "APS per entry"}
                   </caption>
                   <TableHeader className="[&_tr]:border-b-0">
                     <TableRow className="hover:bg-transparent">
-                      <TableHead className="sticky top-0 left-0 z-20 w-12 border-b bg-[var(--glass-strong)] px-4 text-right backdrop-blur-xl">
-                        <span className="eyebrow text-muted-foreground">#</span>
+                      <TableHead className="sticky top-0 left-0 z-20 w-9 border-b bg-[var(--glass-strong)] px-2 text-right backdrop-blur-xl">
+                        <span className="eyebrow text-[0.625rem] text-muted-foreground">#</span>
                       </TableHead>
-                      <TableHead className="sticky top-0 left-12 z-20 min-w-64 border-b border-r border-border/50 bg-[var(--glass-strong)] px-3 backdrop-blur-xl">
-                        <span className="eyebrow text-muted-foreground">School / College</span>
+                      <TableHead className="sticky top-0 left-9 z-20 min-w-48 max-w-72 border-b border-r border-border/50 bg-[var(--glass-strong)] px-2.5 backdrop-blur-xl">
+                        <span className="eyebrow text-[0.625rem] text-muted-foreground">School / College</span>
                       </TableHead>
                       {lookups &&
                         columns.map((id) => {
@@ -266,14 +266,14 @@ export default function SchoolPerformance() {
                             <TableHead
                               key={id}
                               aria-sort={active ? (sort.dir === "desc" ? "descending" : "ascending") : "none"}
-                              className="sticky top-0 z-10 h-auto border-b bg-[var(--glass-strong)] px-3 py-2.5 text-right align-bottom backdrop-blur-xl"
+                              className="sticky top-0 z-10 h-auto border-b bg-[var(--glass-strong)] px-2.5 py-1.5 text-right align-bottom backdrop-blur-xl"
                             >
                               <div className="flex items-end justify-end gap-1">
                                 {note && (
                                   <Tooltip>
                                     <TooltipTrigger asChild>
                                       <button type="button" aria-label="About this measure" className="mb-0.5 text-terracotta">
-                                        <Info className="size-3.5" />
+                                        <Info className="size-3" />
                                       </button>
                                     </TooltipTrigger>
                                     <TooltipContent className="max-w-72">{note}</TooltipContent>
@@ -293,20 +293,20 @@ export default function SchoolPerformance() {
                                     className={cn(
                                       "font-semibold",
                                       isShort
-                                        ? "text-[0.8rem] whitespace-nowrap"
-                                        : "line-clamp-3 max-w-40 text-[0.7rem] leading-tight whitespace-normal",
+                                        ? "text-[0.75rem] whitespace-nowrap"
+                                        : "line-clamp-3 max-w-36 text-[0.65rem] leading-tight whitespace-normal",
                                     )}
                                   >
                                     {indicatorTitle(lookups, id)}
                                   </span>
                                   {active ? (
                                     sort.dir === "desc" ? (
-                                      <ArrowDown className="mb-0.5 size-3.5 shrink-0 text-primary" />
+                                      <ArrowDown className="mb-0.5 size-3 shrink-0 text-primary" />
                                     ) : (
-                                      <ArrowUp className="mb-0.5 size-3.5 shrink-0 text-primary" />
+                                      <ArrowUp className="mb-0.5 size-3 shrink-0 text-primary" />
                                     )
                                   ) : (
-                                    <ArrowUpDown className="mb-0.5 size-3.5 shrink-0 opacity-0 transition-opacity group-hover/sort:opacity-60" />
+                                    <ArrowUpDown className="mb-0.5 size-3 shrink-0 opacity-0 transition-opacity group-hover/sort:opacity-60" />
                                   )}
                                 </button>
                               </div>
@@ -319,16 +319,16 @@ export default function SchoolPerformance() {
                     {!data.data || !lookups
                       ? Array.from({ length: 10 }).map((_, i) => (
                           <TableRow key={i} className="hover:bg-transparent">
-                            <TableCell className="px-4">
-                              <Skeleton className="ml-auto h-4 w-5 bg-foreground/5" />
+                            <TableCell className="px-2">
+                              <Skeleton className="ml-auto h-3.5 w-4 bg-foreground/5" />
                             </TableCell>
-                            <TableCell className="px-3 py-3">
-                              <Skeleton className="h-4 w-56 bg-foreground/5" />
-                              <Skeleton className="mt-1.5 h-3 w-28 bg-foreground/5" />
+                            <TableCell className="px-2.5 py-2">
+                              <Skeleton className="h-3.5 w-48 bg-foreground/5" />
+                              <Skeleton className="mt-1 h-2.5 w-24 bg-foreground/5" />
                             </TableCell>
                             {(columns.length ? columns : [1, 2, 3, 4, 5, 6]).map((c) => (
-                              <TableCell key={String(c)} className="px-3">
-                                <Skeleton className="ml-auto h-4 w-12 bg-foreground/5" />
+                              <TableCell key={String(c)} className="px-2.5">
+                                <Skeleton className="ml-auto h-3.5 w-10 bg-foreground/5" />
                               </TableCell>
                             ))}
                           </TableRow>
@@ -343,28 +343,28 @@ export default function SchoolPerformance() {
                                 lastOfSchool && "[&>td]:border-b [&>td]:border-border/70",
                               )}
                             >
-                              <TableCell className="tabular sticky left-0 z-[5] bg-background px-4 text-right align-top text-xs text-muted-foreground transition-colors group-hover/row:bg-muted/60 group-hover/row:text-foreground">
+                              <TableCell className="tabular sticky left-0 z-[5] bg-background px-2 text-right align-top text-[0.7rem] text-muted-foreground transition-colors group-hover/row:bg-muted/60 group-hover/row:text-foreground pt-1.5">
                                 {ranks[i] ?? ""}
                               </TableCell>
-                              <TableCell className="sticky left-12 z-[5] max-w-80 border-r border-border/50 bg-background px-3 py-2.5 whitespace-normal transition-colors group-hover/row:bg-muted/60">
+                              <TableCell className="sticky left-9 z-[5] max-w-72 border-r border-border/50 bg-background px-2.5 py-1.5 whitespace-normal transition-colors group-hover/row:bg-muted/60">
                                 {row.isFirstOfSchool && (
-                                  <div className="font-display text-[0.95rem] leading-snug font-medium">
+                                  <div className="font-display text-[0.84rem] leading-snug font-medium">
                                     {row.schoolName}
                                   </div>
                                 )}
                                 {row.isFirstOfSchool && (
-                                  <div className="mt-0.5 text-[0.7rem] text-muted-foreground">
+                                  <div className="mt-0.5 text-[0.625rem] text-muted-foreground">
                                     {row.laName}
                                     {row.urn && <span className="tabular"> · URN {row.urn}</span>}
                                   </div>
                                 )}
                                 {row.isFirstOfSchool && (
-                                  <div className="mt-1 flex flex-wrap items-center gap-1">
-                                    <span className="inline-flex items-center rounded-md bg-secondary/80 px-1.5 py-0.5 text-[0.625rem] font-medium text-secondary-foreground">
+                                  <div className="mt-0.5 flex flex-wrap items-center gap-1">
+                                    <span className="inline-flex items-center rounded-md bg-secondary/80 px-1 py-0.25 text-[0.575rem] font-medium text-secondary-foreground">
                                       {row.schoolType}
                                     </span>
                                     {row.isFaithSchool && (
-                                      <span className="inline-flex items-center rounded-md border border-primary/25 bg-primary/10 px-1.5 py-0.5 text-[0.625rem] font-medium text-primary">
+                                      <span className="inline-flex items-center rounded-md border border-primary/25 bg-primary/10 px-1 py-0.25 text-[0.575rem] font-medium text-primary">
                                         {row.religion}
                                       </span>
                                     )}
@@ -373,7 +373,7 @@ export default function SchoolPerformance() {
                                 {multiGroup && (
                                   <span
                                     className={cn(
-                                      "mt-1.5 inline-flex rounded-full px-2 py-0.5 text-[0.65rem] font-medium",
+                                      "mt-1 inline-flex rounded-full px-1.5 py-0.25 text-[0.6rem] font-medium",
                                       row.groupKey === ALL_PUPILS_KEY
                                         ? "bg-primary/12 text-primary"
                                         : "bg-terracotta/12 text-terracotta",
@@ -406,15 +406,15 @@ export default function SchoolPerformance() {
                                     key={id}
                                     title={gradeBadge ? `${text} (${companionLabel}: ${gradeBadge})` : title}
                                     className={cn(
-                                      "tabular px-3 text-right align-top text-[0.9rem]",
-                                      row.isFirstOfSchool ? "pt-3" : "pt-2.5",
+                                      "tabular px-2.5 text-right align-top text-[0.8125rem]",
+                                      row.isFirstOfSchool ? "pt-2" : "pt-1.5",
                                       isMuted && "text-muted-foreground/70",
                                       sort.indicatorId === id && "bg-primary/[0.04] font-semibold",
                                     )}
                                   >
                                     {gradeBadge ? (
                                       <span className="inline-flex items-baseline justify-end gap-1.5">
-                                        <span className="rounded bg-primary/10 px-1.5 py-0.5 font-sans text-[0.68rem] leading-none font-semibold text-primary">
+                                        <span className="rounded bg-primary/10 px-1.5 py-0.5 font-sans text-[0.65rem] leading-none font-semibold text-primary">
                                           {gradeBadge}
                                         </span>
                                         <span>{text}</span>
@@ -437,7 +437,7 @@ export default function SchoolPerformance() {
             )}
           </section>
 
-          <footer className="flex flex-col gap-2 px-1 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <footer className="flex flex-col gap-1.5 px-1 text-[0.7rem] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
             <p>
               <span className="font-medium text-foreground">c</span> suppressed for confidentiality ·{" "}
               <span className="font-medium text-foreground">–</span> not applicable or not published

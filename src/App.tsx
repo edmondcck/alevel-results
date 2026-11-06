@@ -31,7 +31,7 @@ function AnimatedRoutes() {
   }, [location.pathname])
 
   return (
-    <main key={location.pathname} className="mx-auto w-full max-w-[1400px] flex-1 animate-fade px-3 pb-12 sm:px-6">
+    <main key={location.pathname} className="mx-auto w-full max-w-[1400px] flex-1 animate-fade px-2.5 pb-8 sm:px-5">
       <Suspense fallback={null}>
         <Routes location={location}>
           <Route path="/" element={<SchoolPerformance />} />

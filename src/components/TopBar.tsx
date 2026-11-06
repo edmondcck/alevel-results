@@ -9,10 +9,10 @@ const NAV = [
 
 export function TopBar() {
   return (
-    <header className="sticky top-0 z-40 px-3 pt-3 sm:px-6">
-      <div className="glass-strong mx-auto flex max-w-[1400px] items-center gap-3 rounded-2xl px-3 py-2 sm:gap-6 sm:px-5">
-        <NavLink to="/" className="group flex shrink-0 items-baseline gap-2" aria-label="A-Level Results home">
-          <span className="font-display text-xl font-semibold tracking-tight sm:text-2xl">
+    <header className="sticky top-0 z-40 px-3 pt-2 sm:px-6">
+      <div className="glass-strong mx-auto flex max-w-[1400px] items-center gap-3 rounded-2xl px-3 py-1.5 sm:gap-5 sm:px-4">
+        <NavLink to="/" className="group flex shrink-0 items-baseline gap-1.5" aria-label="A-Level Results home">
+          <span className="font-display text-lg font-semibold tracking-tight sm:text-xl">
             A-Level <em className="font-normal text-primary italic">Results</em>
           </span>
         </NavLink>
@@ -26,7 +26,7 @@ export function TopBar() {
               end
               className={({ isActive }) =>
                 cn(
-                  "group relative rounded-full px-3 py-1.5 text-sm font-medium whitespace-nowrap transition-colors",
+                  "group relative rounded-full px-2.5 py-1 text-xs font-medium whitespace-nowrap transition-colors sm:text-sm",
                   isActive
                     ? "bg-primary/10 text-foreground"
                     : "text-muted-foreground hover:bg-foreground/5 hover:text-foreground",
@@ -39,7 +39,7 @@ export function TopBar() {
                   <span
                     aria-hidden
                     className={cn(
-                      "absolute inset-x-3 -bottom-px h-px origin-left bg-primary transition-transform duration-300",
+                      "absolute inset-x-2.5 -bottom-px h-px origin-left bg-primary transition-transform duration-300",
                       isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-50",
                     )}
                   />

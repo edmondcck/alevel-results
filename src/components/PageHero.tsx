@@ -13,17 +13,17 @@ export function PageHero({
   aside?: ReactNode
 }) {
   return (
-    <div className="flex animate-rise flex-col gap-4 px-1 pt-4 sm:pt-8 md:flex-row md:items-end md:justify-between">
+    <div className="flex animate-rise flex-col gap-2 px-1 pt-2 sm:pt-4 md:flex-row md:items-end md:justify-between">
       <div className="max-w-3xl">
-        <p className="eyebrow flex items-center gap-2 text-primary">
-          <span className="inline-block h-px w-8 bg-primary/60" />
+        <p className="eyebrow flex items-center gap-1.5 text-primary text-[0.625rem]">
+          <span className="inline-block h-px w-6 bg-primary/60" />
           {eyebrow}
         </p>
-        <h1 className="mt-3 font-display text-4xl leading-[1.02] font-light tracking-tight sm:text-6xl">
+        <h1 className="mt-1.5 font-display text-2xl leading-tight font-light tracking-tight sm:text-4xl">
           {title}
         </h1>
         {lede && (
-          <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">{lede}</p>
+          <p className="mt-1 max-w-2xl text-xs leading-normal text-muted-foreground sm:text-sm">{lede}</p>
         )}
       </div>
       {aside}
