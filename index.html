@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Performance · A-Level Results</title>
+    <meta
+      name="description"
+      content="Explore A-Level and 16 to 19 performance results for schools, sixth forms, and colleges in England: APS per entry, Best 3 A levels, % AAB+, Value Added, and retention, by local authority and year, using official DfE data."
+    />
+    <meta name="theme-color" content="#f7f3ea" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#151a2e" media="(prefers-color-scheme: dark)" />
+    <meta property="og:title" content="A-Level Results – School & College Performance" />
+    <meta
+      property="og:description"
+      content="Institution-level A-Level and 16-to-19 performance and trends from the DfE Explore Education Statistics service."
+    />
+    <link rel="preconnect" href="https://api.education.gov.uk" crossorigin />
+    <script>
+      // Apply the saved theme before first paint (default: light) to avoid a flash
+      try {
+        if (localStorage.getItem("alevel-theme") === "dark") document.documentElement.classList.add("dark")
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
