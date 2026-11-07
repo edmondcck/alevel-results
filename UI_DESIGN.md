@@ -116,7 +116,7 @@ export function BackgroundDecor() {
 ### Performance Rule for Sticky Table Cells
 > **Crucial Optimization**: Never place `backdrop-filter: blur(...)` inside repeated table body rows with sticky columns. In Chromium/WebKit on macOS, stacking 100+ hardware-composited backdrop filters causes multi-second scroll latency and GPU thread lockups.
 > 
-> **Solution**: Keep backdrop blur on `<TableHead>`, but use opaque `bg-background` and `border-r border-border/50` on sticky table cells (`left-0`, `left-9`) in `<TableBody>`.
+> **Solution**: Keep backdrop blur on `<TableHead>`, but use opaque `bg-background` and `border-r border-border/50` on sticky table cells (`left-0`, `left-8`) in `<TableBody>`.
 
 ---
 
@@ -248,8 +248,8 @@ When multiple items are selected, display the first item's name plus a small bad
 
 ### 6. High-Density Table Layout
 Optimized for dense tabular data with sticky navigation columns:
-- **Sticky Rank `#` Column**: Fixed width `w-9`, `left-0`, `px-2 text-right`.
-- **Sticky School Column**: `left-9`, `min-w-48 max-w-72`, `px-2.5 py-1.5`. Title set to `text-[0.84rem]` with tight line height.
+- **Sticky Rank `#` Column**: Fixed width `w-8 min-w-8 max-w-8`, `left-0`, `px-0.5 text-center`. Rigorously constrained with explicit `min-w` and `max-w` across `<th>` and `<td>` to avoid auto-table shrinkage and prevent gaps with Column 1.
+- **Sticky School Column**: `left-8`, `min-w-48 max-w-72`, `px-2.5 py-1.5`. Matches rank column offset exactly (`32px` / `2rem`). Title set to `text-[0.84rem]` with tight line height.
 - **Metric Indicator Columns**: Right-aligned tabular numerals `tabular text-[0.8125rem]` with compact cell padding `px-2.5 py-1.5`.
 - **Active Sort Column**: Highlighted with `bg-primary/[0.04] font-semibold` for immediate scanability.
 

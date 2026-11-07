@@ -250,10 +250,10 @@ export default function SchoolPerformance() {
                   </caption>
                   <TableHeader className="[&_tr]:border-b-0">
                     <TableRow className="hover:bg-transparent">
-                      <TableHead className="sticky top-0 left-0 z-20 w-9 border-b bg-[var(--glass-strong)] px-2 text-right backdrop-blur-xl">
+                      <TableHead className="sticky top-0 left-0 z-20 w-8 min-w-8 max-w-8 border-b bg-[var(--glass-strong)] px-0.5 text-center backdrop-blur-xl">
                         <span className="eyebrow text-[0.625rem] text-muted-foreground">#</span>
                       </TableHead>
-                      <TableHead className="sticky top-0 left-9 z-20 min-w-48 max-w-72 border-b border-r border-border/50 bg-[var(--glass-strong)] px-2.5 backdrop-blur-xl">
+                      <TableHead className="sticky top-0 left-8 z-20 min-w-48 max-w-72 border-b border-r border-border/50 bg-[var(--glass-strong)] px-2.5 backdrop-blur-xl">
                         <span className="eyebrow text-[0.625rem] text-muted-foreground">School / College</span>
                       </TableHead>
                       {lookups &&
@@ -319,10 +319,10 @@ export default function SchoolPerformance() {
                     {!data.data || !lookups
                       ? Array.from({ length: 10 }).map((_, i) => (
                           <TableRow key={i} className="hover:bg-transparent">
-                            <TableCell className="px-2">
-                              <Skeleton className="ml-auto h-3.5 w-4 bg-foreground/5" />
+                            <TableCell className="w-8 min-w-8 max-w-8 px-0.5 text-center">
+                              <Skeleton className="mx-auto h-3.5 w-4 bg-foreground/5" />
                             </TableCell>
-                            <TableCell className="px-2.5 py-2">
+                            <TableCell className="sticky left-8 z-[5] px-2.5 py-2">
                               <Skeleton className="h-3.5 w-48 bg-foreground/5" />
                               <Skeleton className="mt-1 h-2.5 w-24 bg-foreground/5" />
                             </TableCell>
@@ -343,10 +343,10 @@ export default function SchoolPerformance() {
                                 lastOfSchool && "[&>td]:border-b [&>td]:border-border/70",
                               )}
                             >
-                              <TableCell className="tabular sticky left-0 z-[5] bg-background px-2 text-right align-top text-[0.7rem] text-muted-foreground transition-colors group-hover/row:bg-muted/60 group-hover/row:text-foreground pt-1.5">
+                              <TableCell className="tabular sticky left-0 z-[5] w-8 min-w-8 max-w-8 bg-background px-0.5 text-center align-top text-[0.7rem] text-muted-foreground transition-colors group-hover/row:bg-muted/60 group-hover/row:text-foreground pt-1.5">
                                 {ranks[i] ?? ""}
                               </TableCell>
-                              <TableCell className="sticky left-9 z-[5] max-w-72 border-r border-border/50 bg-background px-2.5 py-1.5 whitespace-normal transition-colors group-hover/row:bg-muted/60">
+                              <TableCell className="sticky left-8 z-[5] max-w-72 border-r border-border/50 bg-background px-2.5 py-1.5 whitespace-normal transition-colors group-hover/row:bg-muted/60">
                                 {row.isFirstOfSchool && (
                                   <div className="font-display text-[0.84rem] leading-snug font-medium">
                                     {row.schoolName}
